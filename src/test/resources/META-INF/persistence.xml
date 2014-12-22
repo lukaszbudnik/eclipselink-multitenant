@@ -1,0 +1,35 @@
+<persistence xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
+             version="2.1">
+
+    <persistence-unit name="jpa-eclipselink" transaction-type="RESOURCE_LOCAL">
+        <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+
+        <class>io.github.lukaszbudnik.eclipselink.multitenant.model.TestRun</class>
+        <class>io.github.lukaszbudnik.eclipselink.multitenant.model.TestCase</class>
+        <class>io.github.lukaszbudnik.eclipselink.multitenant.model.Status</class>
+        <class>io.github.lukaszbudnik.eclipselink.multitenant.model.Configuration</class>
+
+        <shared-cache-mode>ENABLE_SELECTIVE</shared-cache-mode>
+
+        <properties>
+            <property name="javax.persistence.jdbc.url" value="jdbc:h2:~/test"/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:h2:mem:mymemdb"/>
+            <property name="javax.persistence.jdbc.user" value="SA"/>
+            <property name="javax.persistence.jdbc.password" value=""/>
+            <property name="javax.persistence.jdbc.driver" value="org.h2.Driver"/>
+            <property name="javax.persistence.sharedCache.mode" value="ENABLE_SELECTIVE"/>
+
+            <property name="javax.persistence.sql-load-script-source" value="insert.sql"/>
+
+            <property name="eclipselink.logging.level" value="FINE"/>
+            <property name="eclipselink.logging.thread" value="false"/>
+            <property name="eclipselink.logging.session" value="false"/>
+            <property name="eclipselink.logging.exceptions" value="false"/>
+            <property name="eclipselink.logging.timestamp" value="false"/>
+
+        </properties>
+    </persistence-unit>
+
+</persistence>

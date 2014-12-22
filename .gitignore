@@ -1,0 +1,9 @@
+.idea/
+build/
+.gradle/
+.DS_Store
+eclipselink-multitenant.iml
+gradle/
+gradlew
+gradlew.bat
+
